@@ -1,6 +1,11 @@
 Requirement Quality Checker using NLP
 
-GROUP MEMBERS: Name Roll Number Anugraha Pulinjeri B220177CS Abhinandh P B220095CS Jonase Eldho B220342CS Arjun Sarath B220190CS
+GROUP MEMBERS: 
+Name                   Roll Number 
+Anugraha Pulinjeri     B220177CS 
+Abhinandh P            B220095CS 
+Jonase Eldho           B220342CS 
+Arjun Sarath           B220190CS
 
 Introduction
 Software Requirement Specifications (SRS) are crucial in defining what a system should do. However, ambiguous language — especially passive voice and conditional modal verbs (like could, might, should, would) — makes requirements unclear and hard to test.
@@ -30,19 +35,17 @@ Conditional modals indicate possibility or uncertainty. Examples: could, might, 
 
 Our script checks for these modal auxiliaries in each sentence. Such usage weakens requirement enforceability (e.g., “The system should allow login.” → “The system shall allow login.”).
 
-Methodology 🔹 Step 1: Data Collection
-We use multiple .txt files of SRS documents stored in the /data directory.
+Methodology 
+🔹 Step 1: Data Collection
+      We use multiple .txt files of SRS documents stored in the /data directory.
 
 🔹 Step 2: Preprocessing
-
-Each file is read, tokenized, and split into sentences using spaCy’s NLP pipeline.
+      Each file is read, tokenized, and split into sentences using spaCy’s NLP pipeline.
 
 🔹 Step 3: Detection
-
-Two main detection functions are applied:
+      Two main detection functions are applied:
 
 detect_passive_voice(sentence)
-
 detect_conditional_modal(sentence)
 
 These functions check for passive constructions and modal verbs respectively.
@@ -58,10 +61,35 @@ Results are stored in a pandas DataFrame and displayed as a summary table. The s
 
 Total sentences per file Passive voice count Conditional modal count Rewritten suggestions
 
-Working Flow Input Folder (data/) ↓ Read All .txt Files ↓ Sentence Segmentation using spaCy ↓ POS Tagging & Dependency Parsing ↓ → Passive Voice Detection (nsubjpass / auxpass) → Conditional Modal Detection (should / would / might / could) ↓ AI API Rewriting (Active Voice Conversion) ↓
-Result Summary Table (pandas DataFrame) ↓ Console Output / File Output
+Working Flow 
+  Input Folder (data/) 
+        ↓ 
+  Read All .txt Files 
+        ↓
+  Sentence Segmentation using spaCy 
+        ↓ 
+  POS Tagging & Dependency Parsing 
+        ↓ 
+    → Passive Voice Detection (nsubjpass / auxpass) 
+    → Conditional Modal Detection (should / would / might / could) 
+        ↓ 
+  AI API Rewriting (Active Voice Conversion) 
+        ↓
+  Result Summary Table (pandas DataFrame) 
+        ↓ 
+  Console Output / File Output
 
-Code Overview detect_passive_voice(sentence) Uses spaCy dependency tags (nsubjpass, auxpass) to detect passive constructions. detect_conditional_modal(sentence) Searches for modal words like could, might, should, would. analyze_document(text) Tokenizes the text, applies both detectors, and summarizes counts. rewrite_passive_to_active(sentence) Calls OpenAI API to rewrite passive to active voice. process_files(folder) Loops through .txt SRS files and returns a report.
+Code Overview 
+detect_passive_voice(sentence): 
+  Uses spaCy dependency tags (nsubjpass, auxpass) to detect passive constructions. 
+detect_conditional_modal(sentence): 
+  Searches for modal words like could, might, should, would. 
+analyze_document(text): 
+  Tokenizes the text, applies both detectors, and summarizes counts. 
+rewrite_passive_to_active(sentence): 
+  Calls OpenAI API to rewrite passive to active voice. 
+process_files(folder): 
+  Loops through .txt SRS files and returns a report.
 
 How to Run
 
