@@ -7,6 +7,7 @@ Abhinandh P            B220095CS
 Jonase Eldho           B220342CS 
 Arjun Sarath           B220190CS
 
+
 Introduction
 Software Requirement Specifications (SRS) are crucial in defining what a system should do. However, ambiguous language — especially passive voice and conditional modal verbs (like could, might, should, would) — makes requirements unclear and hard to test.
 
